@@ -9,14 +9,14 @@ function randomValueFromArray(array){
 var textStr = "It was 94 farenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but he was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
 
 var character = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
-var location = ["the soup kitchen","Disneyland","the White House"];
+var loc = ["the soup kitchen", "Disneyland", "the White House"];
 var event = ["spontaneously combusted","melted into a puddle on the sidewalk","turned into a slug and crawled away"];
 
 
 randomize.addEventListener('click', result);
 
 function result() {
-  alert("Hi")
+
   var name = "Bob";
   if(customName.value != '') {
     var name = customName.value;
@@ -30,7 +30,7 @@ function result() {
   }
 
  textStr.replace(":insertx:", randomValueFromArray(character));
- textStr.replace(":inserty:", randomValueFromArray(location));
+ textStr.replace(":inserty:", randomValueFromArray(loc));
  textStr.replace(":insertz:", randomValueFromArray(event));
  textStr.replace("Bob", name);
  story.textContent = textStr;
