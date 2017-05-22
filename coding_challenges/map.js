@@ -20,5 +20,5 @@ var ret = a.map(function(val) {
     return val*2;
 })
 
-console.log(ret)
 
+console.log(ret)
