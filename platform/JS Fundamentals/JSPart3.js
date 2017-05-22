@@ -1,4 +1,4 @@
-function person(name) {
+function personConstructor(name) {
     var obj = {}
     obj.name = name;
     obj.distanceTravelled = 0;
@@ -18,10 +18,28 @@ function person(name) {
         obj.distanceTravelled+=1;
     }
 
-
+    
     return obj;
 }
 
-var sree = person("sree").walk()
+// var person = personConstructor("sree")
+// person.walk();
+// console.log(person.distanceTravelled)
 
-console.log(sree.distanceTravelled);
+
+function ninjaConstructor(name) {
+    var obj ={};
+    obj.name = name;
+    obj.cohort = "";
+    obj.belt = "Yellow";
+
+    obj.levelUp = function () {
+        obj.belt = "Black"
+    }
+    return obj;
+}
+
+var ninja = ninjaConstructor("Sree");
+ninja.cohort = "MEAN";
+ninja.levelUp()
+console.log(ninja.belt);
