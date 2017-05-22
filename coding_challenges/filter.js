@@ -10,7 +10,7 @@ Array.prototype.filter = function (cb) {
             newArr.push (val);
         }
         
-    }, this);        
+    });        
 
 
     return newArr
