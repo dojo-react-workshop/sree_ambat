@@ -28,11 +28,10 @@ function result() {
     var temperature =  Math.round(94);
     
   }
-
- textStr.replace(":insertx:", randomValueFromArray(character));
- textStr.replace(":inserty:", randomValueFromArray(loc));
- textStr.replace(":insertz:", randomValueFromArray(event));
- textStr.replace("Bob", name);
+ textStr = textStr.replace(":insertx:", randomValueFromArray(character));
+ textStr = textStr.replace(":inserty:", randomValueFromArray(loc));
+ textStr = textStr.replace(":insertz:", randomValueFromArray(event));
+ textStr = textStr.replace("Bob", name);
  story.textContent = textStr;
  story.style.visibility = 'visible';
 }
