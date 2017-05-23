@@ -16,7 +16,7 @@ Array.prototype.reduce = function (cb, initVal) {
 }
 
 const sum = array.reduce((currentSum, currentVal)=>{
-    return currentSum*currentVal
+    return currentSum+currentVal
 }, 'z');
 
 console.log(sum)
