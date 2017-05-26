@@ -1,0 +1,61 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-family: "Ubuntu", Arial, Helvetica, sans-serif
+}
+.container {
+    width:960px;
+    margin: 0 auto;
+    padding: 20px
+}
+.hdr, .input{
+    width: 100%;
+    display:block;
+}
+.namelist{
+    margin-top:50px;
+    width: 100%;
+    display:block;
+    border: 2px solid #3388f0;
+    padding:20px
+}
+
+#names li{
+    list-style: none;
+    font-weight: bold;
+    font-size:18px;
+    color: #444;
+    padding:10px;
+    border-bottom: 1px dotted #5cb85c;
+    background:#fff
+}
+
+input {
+    width:350px;
+    border: 1px solid #419641;
+    border-radius: 5px;
+    font-size: 25px;
+    margin:20px;
+    padding:5px;
+    color:#5cb85c
+    }
+.button-submit {
+    width:150px;
+    background: #419641;
+    color: #eee
+}
+.glyphicon-remove {
+    color:red;
+    vertical-align: middle;
+    padding-left:15px;
+    float:right;
+}
+
+.glyphicon-pencil {
+    color:green;
+    vertical-align: middle;
+    padding-left:5px;
+    float:right;
+}

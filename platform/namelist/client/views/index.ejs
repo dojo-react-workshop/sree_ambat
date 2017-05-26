@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Name List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./style/jumbotron-narrow.css" rel="stylesheet">
+     <link href="./style/main.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>     
+     <script src="./src/main.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted">Name List</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Add your name!</h1>
+            <form action="/" method="post">
+                <input type="text" name="name" placeholder="Name">
+                <input type="hidden" name="hid" value="">
+            </form>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Add Name</a><a class="btn btn-lg btn-link" href="#" role="button">Cancel</a></p>
+        <p class="status">&nbsp;</p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12">
+            <ul id="names">
+
+            </ul>
+
+        </div>
+
+
+      </div>
+
+      <footer class="footer">
+        <p>&copy; 2017 Sree Ambat</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

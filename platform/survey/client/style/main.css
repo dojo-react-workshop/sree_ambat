@@ -1,0 +1,45 @@
+a {text-decoration: none}
+li{list-style: none}
+img{
+    vertical-align: middle; 
+    width:100px;
+}
+.colorGreen {
+    color: #0bbc74;
+}
+.colorOrange{
+    color: #bc260b
+}
+.colorPurple{
+    color:#5933f0
+}
+.colorPink{
+    color:#f0336c
+}
+.colorDark{
+    color:#222;
+}
+.section{ 
+    padding:20px
+}
+
+.values {
+    background: #444;
+    color:#0BBC74;
+    margin-bottom: -20px;
+}
+#map{
+    height: 400px;
+    width: 100%;
+}
+input[type=text], textarea{
+    width: 90%
+}
+
+.applyborder{
+    border:1px solid darkblue;
+    padding:10px
+}
+applybg{
+    background: #ddd;
+}

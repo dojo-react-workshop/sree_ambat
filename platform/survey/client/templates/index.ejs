@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>Survey Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/style/normalize.css">
+    <link rel="stylesheet" href="/style/skeleton.css">
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+    <div class="section">
+    <div class=container>
+        <div class="row">
+            <div class="one-third column">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent neque lectus, pellentesque ut ligula ac, accumsan euismod nisl. Phasellus vitae magna a justo pharetra accumsan et lobortis arcu. Morbi sed leo metus. Mauris id lacus non mauris sollicitudin porta. Morbi at porttitor velit. Maecenas commodo enim vel sapien egestas mattis. Pellentesque ut ante enim. Aenean at hendrerit ex, id molestie lacus. Maecenas eget erat massa. Aliquam ut dolor lacus.
+
+                    Pellentesque imperdiet lacinia mi. Mauris id auctor mauris, eu rhoncus nunc. Sed accumsan, libero maximus mollis rhoncus, velit ex rutrum purus, non hendrerit est enim in mauris. Nulla bibendum posuere ipsum quis tristique. Nunc porttitor nisi laoreet velit molestie facilisis. Fusce placerat sapien eget eros vulputate vehicula. Cras consequat velit metus, vel volutpat justo aliquet at. Nulla at lorem eget felis egestas varius. Pellentesque sed dignissim ex. Etiam commodo metus non quam vehicula sodales.
+
+                    Pellentesque magna ante, eleifend quis odio non, hendrerit tincidunt sem. Quisque eros mi, imperdiet quis congue ut, rutrum sagittis dolor. Sed sed tellus accumsan est cursus eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ante egestas, imperdiet massa bibendum, hendrerit mi. Suspendisse diam quam, vulputate ut vulputate et, porta sit amet sem. Sed vulputate placerat mattis. Morbi dapibus urna eget velit iaculis venenatis. Nam et turpis ultrices, fringilla odio at, congue sem. Nullam vitae urna et risus efficitur lacinia. Vivamus non risus ac dolor vulputate aliquam vitae a ante.
+
+
+                </p>
+            </div>
+            <div class="one-third column applyborder applybg">
+                <%if(displayResults == "no") {%>
+                <h2 class=colorGreen>Survey Form</h2>
+                <form action="/" method="post">
+                        <label>Your Name:</label>
+                        <input type=text name=name placeholder="Name">
+                        <label>Dojo Location:</label>
+                        <input type=text name=dojolocation placeholder="Location">
+                        <label>Favorite Language:</label>
+                        <input type=text name=favlang placeholder="Key">  
+                        <label>Comments(optional):</label>                        
+                        <textarea name=comments></textarea>                                                
+                        <input type="submit" value="Submit" class="button-primary">
+                </form>
+            <%} else if(displayResults == "yes") {%>
+            <h2 class=colorGreen>Survey Results</h2>
+                <h6>Name: <%=name%></h6>
+                <h6>Location: <%=dojolocation%></h6>
+                <h6>Favorite Language: <%=favlang%></h6>
+                <h6>Comments:<%=comments%></h6>
+                <a href="/"><button>Go Back</button></a>
+            <%}%>
+            </div>
+            <div class="one-third column">
+                <p>
+                    Vivamus vel nisi vehicula, tincidunt nunc sit amet, commodo lorem. Curabitur nulla metus, interdum eget elementum at, iaculis a erat. Maecenas mattis, erat quis consectetur semper, felis sem elementum tellus, et facilisis ipsum nisl in justo. Aliquam fermentum lectus eget est feugiat, nec sollicitudin nunc eleifend. Morbi nunc dui, bibendum lacinia lacus vitae, ullamcorper fermentum dolor. Pellentesque egestas efficitur massa, vel bibendum massa pulvinar at. Ut commodo tellus et tortor consectetur eleifend. Donec dignissim dui at interdum pulvinar. Nullam consequat finibus neque ultricies aliquam. Duis ac magna ut purus ultrices mattis.
+
+                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vulputate nec dolor ac efficitur. Quisque ut dolor leo. Aliquam pretium iaculis eros eget lobortis. In ornare egestas turpis. Donec risus felis, laoreet id facilisis placerat, elementum tincidunt dolor. Pellentesque in malesuada purus. Integer scelerisque faucibus urna non varius. Nullam pretium feugiat maximus. Aliquam blandit rutrum ligula, nec ultrices odio viverra eu. Integer gravida, tortor ac vestibulum vulputate, lectus libero rhoncus lacus, vitae scelerisque nisi orci in elit. Nulla elementum lacus et quam viverra sagittis. Phasellus imperdiet egestas tincidunt. Etiam in imperdiet nibh.                    
+                </p>
+            </div>
+        </div>
+               
+    </div>
+    </div>
+</body>
+</html>
