@@ -24,7 +24,7 @@
 
 #names li{
     list-style: none;
-    font-weight: bold;
+    font-weight: 500;
     font-size:18px;
     color: #555;
     padding:10px;
@@ -52,11 +52,19 @@ input {
     float:right;
 }
 .glyphicon-plus {
+    color:#5cb85c;
+    vertical-align: middle;
+    padding:6px;
+    float:right;
+}
+
+.glyphicon-plus:hover {
     color:#33FFA3;
     vertical-align: middle;
     padding:6px;
     float:right;
 }
+
 .glyphicon-floppy-disk {
     color:#444;
     vertical-align: middle;

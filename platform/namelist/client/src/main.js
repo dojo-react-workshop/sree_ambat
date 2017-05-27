@@ -76,7 +76,7 @@ $(document).ready(function () {
         //editable div
         if($(this).prop("contenteditable") =='false' ) {
             event.stopPropagation();
-            $("div.listname").prop("contenteditable", "false").css('border', '0px')
+            $("div.listname").prop("contenteditable", "false").css('border', '0px').css('background', '#FFF')
             $('.glyphicon-floppy-disk').hide()
             //changes props and styles
             $(this).prop("contenteditable", "true").css('border', '1px solid #398439')
