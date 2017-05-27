@@ -71,3 +71,7 @@ input {
     display: inline-block;
 
 }
+
+.message{
+    margin-left:15px;
+}
