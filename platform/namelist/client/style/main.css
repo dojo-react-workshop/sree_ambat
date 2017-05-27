@@ -26,18 +26,17 @@
     list-style: none;
     font-weight: bold;
     font-size:18px;
-    color: #444;
+    color: #555;
     padding:10px;
     border-bottom: 1px dotted #5cb85c;
-    background:#fff
+
 }
 
 input {
-    width:350px;
+    width:90%;
     border: 1px solid #419641;
     border-radius: 5px;
-    font-size: 25px;
-    margin:20px;
+    font-size: 18px;
     padding:5px;
     color:#5cb85c
     }
@@ -52,7 +51,12 @@ input {
     padding-left:15px;
     float:right;
 }
-
+.glyphicon-plus {
+    color:#33FFA3;
+    vertical-align: middle;
+    padding:6px;
+    float:right;
+}
 .glyphicon-floppy-disk {
     color:#444;
     vertical-align: middle;
@@ -74,4 +78,7 @@ input {
 
 .message{
     margin-left:15px;
+}
+li.addItem{
+    background: #444
 }

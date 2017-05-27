@@ -3,7 +3,7 @@ $(document).ready(function () {
     //list available names
     ListNames()
     //bind the button click function to add /update name
-    $(".btn-success").click(function(){
+    $("#names").on('click', '.glyphicon-plus', function(){
         var nm = $("input[name='name']").val();
         if(nm==undefined || nm =="") {
             alert("Enter a name")
@@ -103,6 +103,7 @@ $(document).ready(function () {
             for (let i = 0; i < arr.length; i++) {
                 $("#names").append("<li><div class='listname' contenteditable='false'>" + arr[i].name + "</div><div class='listicons'><span class='glyphicon glyphicon-remove' id="+ arr[i]._id+"></span><span class='glyphicon glyphicon-floppy-disk' id="+ arr[i]._id + " name='"+ arr[i].name+"'></span></div></li>")
             }
+             $("#names").append("<li class='addItem'><input type='text' name='name' placeholder='Add name'><span class='glyphicon glyphicon-plus'></span></li>")
         })
     }
 
