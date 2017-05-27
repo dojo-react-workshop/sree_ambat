@@ -1,16 +1,7 @@
 $(document).ready(function () {
 
-    //hide cancel update button
-    $(".btn-link").hide()
-
     //list available names
     ListNames()
-    $(".btn-link").click(function(){
-        $("a.btn-success").text("Add Name");
-        $("input[name='name']").val("")
-        $(".btn-link").hide()
-        ListNames()
-    })
     //bind the button click function to add /update name
     $(".btn-success").click(function(){
         var nm = $("input[name='name']").val();
@@ -18,7 +9,6 @@ $(document).ready(function () {
             alert("Enter a name")
             return false;
         }
-        if($(".btn-success").text() == "Add Name") {
             $.post("/add", {name:nm}, function (result) {
                 console.log(result)
                 
@@ -33,61 +23,77 @@ $(document).ready(function () {
                      $(".status").fadeOut('slow');
                 }, 3000)
             })
-        } else {
-            var on = $("input[name='hid']").val();
-            var nm = $("input[name='name']").val();
-            console.log(nm)
-            $.post("/update", {key:on, name:nm}, function (result) {
-                console.log(result)
-                
-                if(result.statusCode === "FAIL") {
-                    $(".status").html('<strong>Error updating the record</strong>').show()
-                } else {
-                    $(".status").html('<strong>Name updated</strong>').show()
-                    $("a.btn-success").text("Add Name");
-                    $("input[name='name']").val("")
-                    $(".btn-link").hide()
-                    ListNames()
-                }  
-                setTimeout(function(){
-                     $(".status").fadeOut('slow');
-                }, 3000)          
-            })
-        }
+
+    })
+        //save updated record
+    $('#names').on("click",'.glyphicon-floppy-disk', function(){
+        event.stopPropagation();
+                //get values
+        var id= $(this).attr('id');
+        var name = $(this).parent().siblings('.listname').text();
+        $.post("/update", {key:id, name:name}, function (result) {
+            console.log(result)
+            
+            if(result.statusCode === "FAIL") {
+                $(".status").html('<strong>Error updating the record</strong>').show()
+            } else {
+                $(".status").html('<strong>Name updated</strong>').show()
+                $(this).hide();
+                ListNames()
+            }  
+            setTimeout(function(){
+                    $(".status").fadeOut('slow');
+            }, 3000)          
+        })
     })
 //------------------------------------------------------
 //delete a name
     $(document).on("click", ".glyphicon-remove", function(){
-        var id= $(this).prop('id');
-        $.get("/delete/"+id, function (result) {
-            console.log(result)
-            
-            if(result.statusCode === "FAIL") {
+        if(confirm("Do you want to delete this record?") == true) {
+            var id= $(this).prop('id');
+            $.get("/delete/"+id, function (result) {
+                console.log(result)
                 
-                $(".status").html('<strong>Error deleting the record</strong>').show()
-            } else {
-                $(".status").html('<strong>Name deleted</strong>').show()
-                ListNames()
-            }    
-            setTimeout(function(){
-                    $(".status").fadeOut('slow');
-            }, 3000)        
-        })
+                if(result.statusCode === "FAIL") {
+                    
+                    $(".status").html('<strong>Error deleting the record</strong>').show()
+                } else {
+                    $(".status").html('<strong>Name deleted</strong>').show()
+                    ListNames()
+                }    
+                setTimeout(function(){
+                        $(".status").fadeOut('slow');
+                }, 3000)        
+            })
+        } else {
+            return false;
+        }
     })
 //-----------------------------------------------------------------
 //edit a n ame
-    $(document).on("click", ".glyphicon-pencil", function(){
-        var id= $(this).attr('id');
-        var name= $(this).attr('name');
-        $("input[name=name").val(name);
-        $("input[name='hid']").val(id);
-        $("a.btn-success").text("Update");
-        $(this).parent().parent().siblings().css("background", "#FFF")
-        $(this).parent().parent().css("background", "#DDD")
-        $(".btn-link").show()
+    $('#names').on("click",'.listname' ,function(){
         
-
+        //editable div
+        if($(this).prop("contenteditable") =='false' ) {
+            event.stopPropagation();
+            $("div.listname").prop("contenteditable", "false").css('border', '0px')
+            $('.glyphicon-floppy-disk').hide()
+            //changes props and styles
+            $(this).prop("contenteditable", "true").css('border', '1px solid #398439')
+            $(this).css("background", "#EEE")
+            $(this).siblings(".listicons").children('.glyphicon-floppy-disk').show();
+        } else {
+           event.stopPropagation();
+        }
+    }) 
+ 
+    // cancel udpate operation
+    $(document).click(function(){
+      $("div.listname").prop("contenteditable", "false").css('border', '0px').css('background', '#FFF')
+      $('.glyphicon-floppy-disk').hide()
     })
+
+
 //list names function
     function ListNames() {
         $.get("/list", function (names) {
@@ -95,7 +101,7 @@ $(document).ready(function () {
 
             $("#names").html("");
             for (let i = 0; i < arr.length; i++) {
-                $("#names").append("<li><h4>" + arr[i].name + "<span class='glyphicon glyphicon-remove' id="+ arr[i]._id+"></span><span class='glyphicon glyphicon-pencil' id="+ arr[i]._id + " name='"+ arr[i].name+"'></span></h4></li>")
+                $("#names").append("<li><div class='listname' contenteditable='false'>" + arr[i].name + "</div><div class='listicons'><span class='glyphicon glyphicon-remove' id="+ arr[i]._id+"></span><span class='glyphicon glyphicon-floppy-disk' id="+ arr[i]._id + " name='"+ arr[i].name+"'></span></div></li>")
             }
         })
     }
