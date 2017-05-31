@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>React JS</title>
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <style>
+            .txt{color:red}
+        </style>
+    </head>
+    <body>
+        <div id="react"><h1>Test</h1>
+        </div>
+        <script>
+            window.setInterval(displayTime, 1000)
+            var container = document.getElementById('react')
+            function displayTime() {
+                var date = new Date().toLocaleTimeString();
+                var h1 = React.createElement('h1', null, date)
+
+                ReactDOM.render(h1, container)
+            }
+        </script>
+    </body>
+</html>

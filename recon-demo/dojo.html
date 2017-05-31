@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>React JS</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <style>
+        .txt {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="react"></div>
+    <script>
+        const reactContainer = document.getElementById('react');
+        const ToDo = (props) => {
+            const {
+                todos
+            } = props;
+            const listItems = todos.map((text, idx) => {
+                return React.createElement('li', {
+                    key: idx
+                }, text);
+            })
+            return React.createElement('ul', null, listItems)
+
+        }
+        ReactDOM.render(React.createElement(
+            'div', {
+                className: 'txt'
+            },
+            React.createElement('h1', null, 'Hello Dojo!'),
+            React.createElement('h2', null, 'Things I need to do:'),
+            React.createElement(ToDo, {
+                todos: ['Learn React', 'Climb Everest', 'Run Marathon']
+            })), reactContainer);
+    </script>
+</body>
+
+</html>

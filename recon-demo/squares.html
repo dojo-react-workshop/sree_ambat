@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Composable Squares</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <style>
+        #react div div{
+            display: inline-block;
+            width: 200px;
+            height:200px;
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="react">
+
+    </div>
+
+    <script type=text/babel>
+        const blocks = [{backgroundColor: 'blue', color: 'white'},
+                            {backgroundColor: 'red', color: 'blue'},
+                            {backgroundColor: 'pink', color: 'green'}];
+        const reactContainer = document.getElementById('react');
+        const Square = (props) => {
+            const { blocks } = props;
+            const blockItems = blocks.map((block, idx) => {
+                return React.createElement('div', { style:block, key: idx }, `${block.color} on ${block.backgroundColor}`);
+            })
+            return React.createElement('div', null, blockItems)
+        }
+        ReactDOM.render(<Square blocks= {blocks} />, reactContainer)
+                         
+    </script>
+</body>
+
+</html>

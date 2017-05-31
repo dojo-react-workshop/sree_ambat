@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Voting App</title>
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>
+        $(document).ready(function(){
+
+            $('#react').on('click', '.sp', function(){
+            alert( $(this).parent('li').text())
+            })
+        })
+        </script>
+        <style>
+            #react{
+                width:1000px;
+                margin:0 auto;
+            }
+        </style>        
+    </head>
+    <body>
+        <div id="react"></div>
+    </body>
+    <script type=text/babel>
+
+        const data = {
+            header:'Vote For Your JS Library!',
+            items:[
+                {
+                    name: 'React JS',
+                    votes: 1
+                },
+                {
+                    name: 'Angular',
+                    votes: 0
+                },
+                {
+                    name: 'Vue',
+                    votes: 0
+                },
+                {
+                    name: 'Ember',
+                    votes: 0
+                },
+                {
+                    name: 'jQuery',
+                    votes: 0
+                }                                      
+             ]
+        }
+
+        const reactContainer = document.getElementById('react');
+
+        const Header = (props) => {
+            return(<h1>{props.text}</h1>)
+        }
+
+        const VotingList = (props) => {
+            const {details} = props;
+            const style = {
+                height:'40px',
+                width: '250px',
+                fontSize: '26px',
+                display:'block',
+                border:'1px solid black',
+                padding:'10px',
+                lineHeight:'40px',
+                textAlign:'center'
+            }
+            const count = {
+                marginRight: '20px',
+                marginLeft: '5px',
+                float:'left'
+            }
+            const plus = {
+                marginRight: '5px',
+                float: 'right'
+            }
+            const Items = props.items.map((item, idx)=>{
+                return (<li style={style} key={idx}>
+                            <span style={count}>{item.votes}</span>
+                            {item.name}
+                            <span className='sp' style={plus}>+</span>
+                        </li>)
+            })
+
+            return(<ul> {Items} </ul>)
+        }
+
+        const App = (props) => {
+           return( <div><Header text={props.data.header} /><VotingList items={data.items} /></div>)
+
+        }
+        ReactDOM.render(<App data={data}/>, reactContainer)
+
+    </script>    
+
+</html>

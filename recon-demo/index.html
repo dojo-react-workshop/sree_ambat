@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>React JS</title>
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <style>
+            .txt{color:red}
+        </style>
+    </head>
+    <body>
+        <div id="js"></div>
+        <div id="react"></div>
+        <script>
+            const jsContainer = document.getElementById('js');
+            const reactContainer = document.getElementById('react');
+
+            jsContainer.innerHTML = `
+                <div class='txt'>
+                    Hello JS
+                </div>`;
+
+                ReactDOM.render(React.createElement('div', {className: 'txt'}, "Hello React"), reactContainer)
+        </script>
+    </body>
+</html>
