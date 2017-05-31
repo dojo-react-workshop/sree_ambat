@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Learn React</title>
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>       
+    </head>
+    <body>
+        <div id='react'></div>
+    </body>
+    <script type=text/babel>
+
+        const data = {
+            libs: ['jquery', 'react', 'backbone', 'angular'],
+            text:'Choose the best'
+        }
+
+        const vals = [
+            {text: 'JS'},
+            {text:'C#'},
+            {text:'Java'}
+        ]
+
+
+        const Child = (props) => {
+            console.log(props);
+            return (<div>
+                        <h1>{props.data[0].text}</h1>
+                        <ul>
+                            <li>{props.data[0].text}</li>
+                        </ul>
+                    </div>
+                    )
+                }
+
+        const App = (props) => {
+            console.log(props.data.text);
+            props.data.libs.map((v, i) => {
+                return React.createElement('div', null, )
+            })
+        }
+
+        ReactDOM.render(<App data = {data} />
+        , document.getElementById('react'))
+
+    </script>
+</html>

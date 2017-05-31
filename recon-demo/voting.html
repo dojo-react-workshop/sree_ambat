@@ -71,7 +71,7 @@
                 lineHeight:'40px',
                 textAlign:'center'
             }
-            const count = {
+            const countStyle = {
                 marginRight: '20px',
                 marginLeft: '5px',
                 float:'left'
@@ -82,7 +82,7 @@
             }
             const Items = props.items.map((item, idx)=>{
                 return (<li style={style} key={idx}>
-                            <span style={count}>{item.votes}</span>
+                            <span style={countStyle}>{item.votes}</span>
                             {item.name}
                             <span className='sp' style={plus}>+</span>
                         </li>)
