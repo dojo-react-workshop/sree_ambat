@@ -76,7 +76,7 @@
                 marginLeft: '5px',
                 float:'left'
             }
-            const plus = {
+            const plusStyle = {
                 marginRight: '5px',
                 float: 'right'
             }
@@ -84,7 +84,7 @@
                 return (<li style={style} key={idx}>
                             <span style={countStyle}>{item.votes}</span>
                             {item.name}
-                            <span className='sp' style={plus}>+</span>
+                            <span className='sp' style={plusStyle}>+</span>
                         </li>)
             })
 
