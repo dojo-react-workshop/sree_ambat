@@ -55,6 +55,7 @@ class List extends Component{
 
 
     getItems = () => {
+        //sort the names descending
         this.state.data.sort((a, b)=>{
            var x = a.name.toUpperCase()
            var y = b.name.toUpperCase()
@@ -66,6 +67,8 @@ class List extends Component{
            }
            return 0
         })
+
+        //Sort by votes
         this.state.data.sort((a, b)=>{
            return b.votes-a.votes
         })
