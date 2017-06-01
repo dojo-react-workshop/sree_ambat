@@ -55,22 +55,12 @@ class List extends Component{
 
 
     getItems = () => {
-        //sort the names descending
-        this.state.data.sort((a, b)=>{
-           var x = a.name.toUpperCase()
-           var y = b.name.toUpperCase()
-
-           if(y<x) {
-               return -1
-           } else if(y>x) {
-                return 1
-           }
-           return 0
-        })
 
         //Sort by votes
         this.state.data.sort((a, b)=>{
-           return b.votes-a.votes
+            let diff = b.votes-a.votes
+            console.log(diff);
+           return diff
         })
 
         var items = this.state.data.map((item, idx)=>{
