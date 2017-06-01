@@ -15,10 +15,12 @@ class AddLib extends Component {
     }
 
     render(){
-        return (<li className='listItem'><form onSubmit={this.handleSubmit.bind(this)}>
-            <input type='text' ref='libName' placeholder='Lib Name' />
-            <input type='submit' value='Add' />
-            </form></li>);
+        return (<li className='listItem'>
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                        <input type='text' ref='libName' placeholder='Lib Name' />
+                        <input type='submit' value='Add' />
+                    </form>
+                </li>);
 }
 }
 export default AddLib;
