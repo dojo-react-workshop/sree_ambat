@@ -6,17 +6,29 @@ class Tic extends Component {
         this.state = {
             board: ['','','','','','','','',''],
             nextToken:'X',
-            winner:''
+            gameOver:false,
+            history:[]
+
         }
     }
 
     nextMove = (x)=> {
-        if((this.state.board[x] !== '') || (this.state.winner)) return
-        let lt='X'
-        if(this.state.nextToken==='X') lt = '0'
+        if((this.state.board[x] !== '') || (this.state.gameOver)) return
+        let next;
+        if(this.state.nextToken==='X') {
+            next = '0'
+            let tempHistory = this.state.history;
+            tempHistory.push('Player X')
+            this.setState({history:tempHistory});
+        } else {
+            next='X'
+            let tempHistory = this.state.history;
+            tempHistory.push('Player O')
+            this.setState({history:tempHistory});
+        }
         let arrBoard = this.state.board;
         arrBoard[x] = this.state.nextToken
-        this.setState({board:arrBoard, nextToken:lt});
+        this.setState({board:arrBoard, nextToken:next});
 
         this.checkWinner(); 
     }
@@ -29,31 +41,47 @@ class Tic extends Component {
         for (let i=0; i<winCombinations.length; i++){
            const [x, y, z] = winCombinations[i]
            if((currBoard[x]) &&((currBoard[x]===currBoard[y]) && (currBoard[x]===currBoard[z]))){
-               console.log('Winner: ', currBoard[x]);
-                this.setState({winner:'Player '+currBoard[x] +' wins'});
+               this.setState({gameOver:true})
+                let tempHistory = this.state.history;
+                tempHistory[tempHistory.length-1]+=' wins'
+                tempHistory.push('(--GAME OVER--)')
+                this.setState({history:tempHistory});
+
           }
         }
+    }
+
+    History = () => {
+       const moves = this.state.history.map((move, idx)=>{
+            return(<li key={move+idx}>{move}</li>)
+        })
+        return moves
     }
 
     render() {
          return ( 
              <div className="container">
-                <div className="row">
-                    <div className="blocks" id='id0_0' onClick={()=>this.nextMove(0)}>{this.state.board[0]}</div>
-                    <div className="blocks midcol" onClick={()=>this.nextMove(1)}>{this.state.board[1]}</div>
-                    <div className="blocks" onClick={()=>this.nextMove(2)}>{this.state.board[2]}</div>
+                <div className="board">
+                    <div className="row">
+                        <div className="blocks" id='id0_0' onClick={()=>this.nextMove(0)}>{this.state.board[0]}</div>
+                        <div className="blocks midcol" onClick={()=>this.nextMove(1)}>{this.state.board[1]}</div>
+                        <div className="blocks" onClick={()=>this.nextMove(2)}>{this.state.board[2]}</div>
+                    </div>
+                    <div className="row midrow">
+                        <div className="blocks" onClick={()=>this.nextMove(3)}>{this.state.board[3]}</div>
+                        <div className="blocks midcol" onClick={()=>this.nextMove(4)}>{this.state.board[4]}</div>
+                        <div className="blocks" onClick={()=>this.nextMove(5)}>{this.state.board[5]}</div>
+                    </div>
+                    <div className="row">
+                        <div className="blocks" onClick={()=>this.nextMove(6)}>{this.state.board[6]}</div>
+                        <div className="blocks midcol" onClick={()=>this.nextMove(7)}>{this.state.board[7]}</div>
+                        <div className="blocks" onClick={()=>this.nextMove(8)}>{this.state.board[8]}</div>
+                    </div>   
+                                        
                 </div>
-                <div className="row midrow">
-                    <div className="blocks" onClick={()=>this.nextMove(3)}>{this.state.board[3]}</div>
-                    <div className="blocks midcol" onClick={()=>this.nextMove(4)}>{this.state.board[4]}</div>
-                    <div className="blocks" onClick={()=>this.nextMove(5)}>{this.state.board[5]}</div>
+                <div className='status'>
+                     <ul>{this.History()}</ul>
                 </div>
-                <div className="row">
-                    <div className="blocks" onClick={()=>this.nextMove(6)}>{this.state.board[6]}</div>
-                    <div className="blocks midcol" onClick={()=>this.nextMove(7)}>{this.state.board[7]}</div>
-                    <div className="blocks" onClick={()=>this.nextMove(8)}>{this.state.board[8]}</div>
-                </div>   
-                <div className="win">{this.state.winner}</div>                             
              </div>
         ); 
         }
